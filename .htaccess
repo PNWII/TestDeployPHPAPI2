@@ -1,5 +1,5 @@
 # ตั้งค่าไฟล์หลักให้เป็น index.php
-DirectoryIndex index.php
+DirectoryIndex backend/index.php
 
 # เปิดการใช้ URL Rewrite
 Options +FollowSymLinks
