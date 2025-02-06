@@ -228,10 +228,8 @@ function fetchGraduateOfficerSignaturesByDocId($docId)
             $thai_date_projectApproval = "วันที่ $thai_day_approval เดือน $thai_month_approval พ.ศ. $thai_year_approval";
             $row['thai_date_projectApproval'] = $thai_date_projectApproval;
             $row['thai_day_approval'] = $thai_day_approval;
-             $row['thai_month_approval'] = $thai_month_approval;
-             $row['thai_year_approval'] = $thai_year_approval;
-
-
+            $row['thai_month_approval'] = $thai_month_approval;
+            $row['thai_year_approval'] = $thai_year_approval;
         } else {
             $row['thai_date_projectApproval'] = null;
             $row['thai_day_approval'] = null;
@@ -511,11 +509,12 @@ if ($document) {
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'คณบดีคณะครุศาสตร์อุตสาหกรรม'));
 
-    $pdf->SetXY(80, 77.5); $pdf->SetFont('THSarabunNew','',16);
+    $pdf->SetXY(80, 77.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['name_student']));
 
-    $pdf->SetXY(159, 77.5); 
-    $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(159, 77.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['idstd_student']));
     $pdf->SetXY(35, 73);
     $pdf->SetFont('THSarabunNew', '', 16);
@@ -545,25 +544,32 @@ if ($document) {
     $pdf->checkboxMark($document['name_studyplan'] == 'แผนที่ 2 แบบวิชาชีพ ภาคสมทบ', 4, 'THSarabunNew', 16);
     $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  ภาคสมทบ'), 0, 1, 'L');
 
-    $pdf->SetXY(36, 98.5); $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(36, 98.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['major_student']));
-    $pdf->SetXY(92, 98.5); $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(92, 98.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['branch_student']));
-    $pdf->SetXY(174, 98.5); $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(174, 98.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['abbreviate_student']));
     $pdf->SetXY(20, 94);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'สาขาวิชา................................................สาขา................................................................อักษรย่อสาขาวิชา...................'));
 
-    $pdf->SetXY(60, 105.5); 
-    $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(60, 105.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['address_student']));
     $pdf->SetXY(20, 101);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'ที่อยู่ที่ติดต่อได้โดยสะดวก...............................................................................................................................................'));
 
-    $pdf->SetXY(38, 112.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['email_student']));
-    $pdf->SetXY(155, 112.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['tel_student']));
+    $pdf->SetXY(38, 112.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['email_student']));
+    $pdf->SetXY(155, 112.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['tel_student']));
     $pdf->SetXY(20, 108);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'E-mail:..................................................................................หมายเลขโทรศัพท์ มือถือ..................................................'));
@@ -584,15 +590,15 @@ if ($document) {
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'เรื่อง..............................................................'));
 
-    $pdf->SetXY(30, 131.5); 
-    $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(30, 131.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', ' ' . $document['projectThai_gs12report']));
     $pdf->SetXY(20, 127);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '.........................................................................................................................................................................................'));
 
-    $pdf->SetXY(30, 137.5); 
-    $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(30, 137.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', ' ' . $document['projectEng_gs12report']));
     $pdf->SetXY(20, 133);
     $pdf->SetFont('THSarabunNew', '', 16);
@@ -610,15 +616,25 @@ if ($document) {
     $pdf->checkboxMark($document['projectType_gs12report'] == 'การศึกษาค้นคว้าอิสระ', 4, 'THSarabunNew', 16);
     $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ'), 0, 1, 'L');
 
-    $pdf->SetXY(x:138, y:144.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $date2_thai));
+    $pdf->SetXY(x: 138, y: 144.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $date2_thai));
     $pdf->SetXY(140, 140);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '......................................................'));
 
-    $pdf->SetXY(x:30, y:151.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['examRequestTime_gs12report']));
-    $pdf->SetXY(x:65, y:151.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['examRequestRoom_gs12report']));
-    $pdf->SetXY(x:95, y:151.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874',  $document['examRequestFloor_gs12report']));
-    $pdf->SetXY(x:118, y:151.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['examRequestBuilding_gs12report']));
+    $pdf->SetXY(x: 30, y: 151.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['examRequestTime_gs12report']));
+    $pdf->SetXY(x: 65, y: 151.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['examRequestRoom_gs12report']));
+    $pdf->SetXY(x: 95, y: 151.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874',  $document['examRequestFloor_gs12report']));
+    $pdf->SetXY(x: 118, y: 151.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['examRequestBuilding_gs12report']));
     $pdf->SetXY(20, 147);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'เวลา.........................ณ ห้อง.........................ชั้น...................อาคาร.............................'));
@@ -639,9 +655,11 @@ if ($document) {
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(10, 10, iconv('UTF-8', 'cp874', 'ลงชื่อรับทราบ'));
 
-    $pdf->SetXY(50, 171.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['advisorMain_gs12report']));
-   // กำหนดลายเซ็นอาจารย์ในตัวแปรแยกกัน
-   foreach ($teacherSignatures as $index => $teacherSignature) {
+    $pdf->SetXY(50, 171.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['advisorMain_gs12report']));
+    // กำหนดลายเซ็นอาจารย์ในตัวแปรแยกกัน
+    foreach ($teacherSignatures as $index => $teacherSignature) {
         $teacherSignatureData = $teacherSignature['teachersign_sign'];
         if (strpos($teacherSignatureData, 'data:image/png;base64,') === 0) {
             $teacherSignatureData = str_replace('data:image/png;base64,', '', $teacherSignatureData);
@@ -658,7 +676,7 @@ if ($document) {
         // แสดงลายเซ็นใน PDF ตามลำดับอาจารย์
         if ($teacherSignature['teachersign_nameTeacher'] === $document['advisorMain_gs12report']) {
             if (file_exists($teacherImage)) {
-                $pdf->Image($teacherImage, 148, 166, 30, 0, 'PNG'); 
+                $pdf->Image($teacherImage, 148, 166, 30, 0, 'PNG');
             } else {
                 $pdf->Cell(0, 10, iconv('UTF-8', 'cp874', 'ไม่พบลายเซ็นของอาจารย์ ' . $teacherSignature['teachersign_nameTeacher']), 0, 1, 'C');
             }
@@ -673,37 +691,39 @@ if ($document) {
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '1.1..........................................................................อาจารย์ที่ปรึกษาหลัก ลงชื่อ...................................................'));
 
-    $pdf->SetXY(x:50, y:178.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['advisorSecond_gs12report']));
+    $pdf->SetXY(x: 50, y: 178.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['advisorSecond_gs12report']));
     //$pdf->SetXY(x:148, y:178.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', 'นิรัตน์ชา เนียมชาวนาม'));
     // กำหนดลายเซ็นอาจารย์ในตัวแปรแยกกัน
-   foreach ($teacherSignatures as $index => $teacherSignature) {
-    $teacherSignatureData = $teacherSignature['teachersign_sign'];
-    if (strpos($teacherSignatureData, 'data:image/png;base64,') === 0) {
-        $teacherSignatureData = str_replace('data:image/png;base64,', '', $teacherSignatureData);
-    }
-    $teacherImage = 'signature_temp_teacher' . ($index + 1) . '.png';
-    file_put_contents($teacherImage, base64_decode($teacherSignatureData));
+    foreach ($teacherSignatures as $index => $teacherSignature) {
+        $teacherSignatureData = $teacherSignature['teachersign_sign'];
+        if (strpos($teacherSignatureData, 'data:image/png;base64,') === 0) {
+            $teacherSignatureData = str_replace('data:image/png;base64,', '', $teacherSignatureData);
+        }
+        $teacherImage = 'signature_temp_teacher' . ($index + 1) . '.png';
+        file_put_contents($teacherImage, base64_decode($teacherSignatureData));
 
-    // ตรวจสอบว่าไฟล์ PNG ของอาจารย์ถูกต้อง
-    if (getimagesize($teacherImage) === false) {
-        unlink($teacherImage); // ลบไฟล์ถ้าพบว่าไม่ใช่ PNG ที่ถูกต้อง
-        die("Error: Not a valid PNG file for teacher " . $teacherSignature['teachersign_nameTeacher']);
-    }
+        // ตรวจสอบว่าไฟล์ PNG ของอาจารย์ถูกต้อง
+        if (getimagesize($teacherImage) === false) {
+            unlink($teacherImage); // ลบไฟล์ถ้าพบว่าไม่ใช่ PNG ที่ถูกต้อง
+            die("Error: Not a valid PNG file for teacher " . $teacherSignature['teachersign_nameTeacher']);
+        }
 
-    // แสดงลายเซ็นใน PDF ตามลำดับอาจารย์
-    if ($teacherSignature['teachersign_nameTeacher'] === $document['advisorSecond_gs12report']) {
+        // แสดงลายเซ็นใน PDF ตามลำดับอาจารย์
+        if ($teacherSignature['teachersign_nameTeacher'] === $document['advisorSecond_gs12report']) {
+            if (file_exists($teacherImage)) {
+                $pdf->Image($teacherImage, 148, 175, 30, 0, 'PNG');
+            } else {
+                $pdf->Cell(0, 10, iconv('UTF-8', 'cp874', 'ไม่พบลายเซ็นของอาจารย์ ' . $teacherSignature['teachersign_nameTeacher']), 0, 1, 'C');
+            }
+        }
+
+        // ลบไฟล์ PNG ชั่วคราวหลังจากใช้งานเสร็จ
         if (file_exists($teacherImage)) {
-            $pdf->Image($teacherImage, 148, 175, 30, 0, 'PNG'); 
-        } else {
-            $pdf->Cell(0, 10, iconv('UTF-8', 'cp874', 'ไม่พบลายเซ็นของอาจารย์ ' . $teacherSignature['teachersign_nameTeacher']), 0, 1, 'C');
+            unlink($teacherImage);
         }
     }
-
-    // ลบไฟล์ PNG ชั่วคราวหลังจากใช้งานเสร็จ
-    if (file_exists($teacherImage)) {
-        unlink($teacherImage);
-    }
-}
     $pdf->SetXY(30, 174);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '1.2..........................................................................อาจารย์ที่ปรึกษาร่วม  ลงชื่อ...................................................'));
@@ -715,12 +735,14 @@ if ($document) {
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'จึงเรียนมาเพื่อโปรดพิจารณา'));
 
-   if (file_exists($signatureImage)) {
-    $pdf->Image($signatureImage, 130, 200, 30, 0, 'PNG'); 
-} else {
-    $pdf->Cell(0, 10, iconv('UTF-8', 'cp874', 'ไม่พบลายเซ็น'), 0, 1, 'C');
-}
-    $pdf->SetXY(x:125, y:227.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['name_student']));
+    if (file_exists($signatureImage)) {
+        $pdf->Image($signatureImage, 130, 200, 30, 0, 'PNG');
+    } else {
+        $pdf->Cell(0, 10, iconv('UTF-8', 'cp874', 'ไม่พบลายเซ็น'), 0, 1, 'C');
+    }
+    $pdf->SetXY(x: 125, y: 227.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['name_student']));
     $pdf->SetXY(110, 217);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'ลงชื่อ.................................................................'));
@@ -757,31 +779,34 @@ if ($document) {
     $pdf->SetXY(48, 44);
     $pdf->checkboxMark(
         isset($chairpersoncurriculumSignatures[0]['ccurrsigna_status']) &&
-        $chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ได้รับการอนุมัติจากประธานคณะกรรมการบริหารหลักสูตรแล้ว',
+            $chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ได้รับการอนุมัติจากประธานคณะกรรมการบริหารหลักสูตรแล้ว',
         4,
         'THSarabunNew',
         16
-    );    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อนุมัติ'), 0, 1, 'L');
+    );
+    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อนุมัติ'), 0, 1, 'L');
     // ตรวจสอบเงื่อนไขและแสดงข้อมูล
-if (isset($chairpersoncurriculumSignatures[0]['ccurrsigna_status']) && 
-$chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ถูกปฏิเสธจากประธานคณะกรรมการบริหารหลักสูตรแล้ว') {
+    if (
+        isset($chairpersoncurriculumSignatures[0]['ccurrsigna_status']) &&
+        $chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ถูกปฏิเสธจากประธานคณะกรรมการบริหารหลักสูตรแล้ว'
+    ) {
 
-// ทำเครื่องหมาย Checkbox
-$pdf->SetXY(78, 44);
-$pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
-$pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
+        // ทำเครื่องหมาย Checkbox
+        $pdf->SetXY(78, 44);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
 
-// แสดงข้อความจาก $description
-$description = isset($chairpersoncurriculumSignatures[0]['ccurrsigna_description']) ? $chairpersoncurriculumSignatures[0]['ccurrsigna_description'] : '';
-$pdf->SetXY(100, 45.5);
-$pdf->SetFont('THSarabunNew', '', 16);
-$pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $description));
-} else {
-// กรณีไม่เข้าเงื่อนไข ใช้ Default
-$pdf->SetXY(78, 44);
-$pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-$pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
-}
+        // แสดงข้อความจาก $description
+        $description = isset($chairpersoncurriculumSignatures[0]['ccurrsigna_description']) ? $chairpersoncurriculumSignatures[0]['ccurrsigna_description'] : '';
+        $pdf->SetXY(100, 45.5);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $description));
+    } else {
+        // กรณีไม่เข้าเงื่อนไข ใช้ Default
+        $pdf->SetXY(78, 44);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
+    }
 
     //$pdf->SetXY(x:127, y:58.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', 'นิรัตน์ชา เนียมชาวนาม'));
     foreach ($chairpersoncurriculumSignatures as $signature) {
@@ -793,8 +818,8 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'ลงชื่อ..............................................................................'));
     $chairpersonName = isset($chairpersoncurriculumSignatures[0]['ccurrsigna_nameChairpersonCurriculum']) ? $chairpersoncurriculumSignatures[0]['ccurrsigna_nameChairpersonCurriculum'] : '';
-    $pdf->SetXY(x:127, y:65.5); 
-    $pdf->SetFont('THSarabunNew','',16); 
+    $pdf->SetXY(x: 127, y: 65.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $chairpersonName));
     $pdf->SetXY(118, 61);
     $pdf->SetFont('THSarabunNew', '', 16);
@@ -816,88 +841,90 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'นักศึกษาได้รับอนุมัติโครงการ'));
 
-    if (isset($graduateOfficerSignatures[0]['gradofficersignGs12_status']) && 
-    $graduateOfficerSignatures[0]['gradofficersignGs12_status'] == 'ได้รับการอนุมัติจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว') {
+    if (
+        isset($graduateOfficerSignatures[0]['gradofficersignGs12_status']) &&
+        $graduateOfficerSignatures[0]['gradofficersignGs12_status'] == 'ได้รับการอนุมัติจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว'
+    ) {
 
-    $pdf->SetXY(78, 94);
-    $pdf->checkboxMark($document['projectType_gs12report'] == 'วิทยานิพนธ์', 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
-    $pdf->SetXY(108, 94);
-    $pdf->checkboxMark($document['projectType_gs12report'] == 'การศึกษาค้นคว้าอิสระ', 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ'), 0, 1, 'L');
+        $pdf->SetXY(78, 94);
+        $pdf->checkboxMark($document['projectType_gs12report'] == 'วิทยานิพนธ์', 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
+        $pdf->SetXY(108, 94);
+        $pdf->checkboxMark($document['projectType_gs12report'] == 'การศึกษาค้นคว้าอิสระ', 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ'), 0, 1, 'L');
 
-    $pdf->SetXY(x:170, y:95.5); 
-    foreach ($graduateOfficerSignatures as $signature) {
-        if (isset($signature['thai_day_approval'])) {
-            $thai_day_approval = $signature['thai_day_approval'];
-            $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $thai_day_approval));  // Print day
+        $pdf->SetXY(x: 170, y: 95.5);
+        foreach ($graduateOfficerSignatures as $signature) {
+            if (isset($signature['thai_day_approval'])) {
+                $thai_day_approval = $signature['thai_day_approval'];
+                $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $thai_day_approval));  // Print day
+            }
+
+            if (isset($signature['thai_month_approval'])) {
+                $thai_month_approval = $signature['thai_month_approval'];
+                $pdf->SetXY(x: 40, y: 102.5);
+                $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $thai_month_approval));  // Print month
+            }
+            if (isset($signature['thai_year_approval'])) {
+                $thai_year_approval = $signature['thai_year_approval'];
+                $pdf->SetXY(x: 90, y: 102.5);
+                $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $thai_year_approval));  // Print month
+            }
         }
-        
-        if (isset($signature['thai_month_approval'])) {
-            $thai_month_approval = $signature['thai_month_approval'];
-            $pdf->SetXY(x:40, y:102.5); 
-            $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $thai_month_approval));  // Print month
-        }
-        if (isset($signature['thai_year_approval'])) {
-            $thai_year_approval = $signature['thai_year_approval'];
-            $pdf->SetXY(x:90, y:102.5); 
-            $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $thai_year_approval));  // Print month
-        }
+
+        $pdf->SetXY(153, 96);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เมื่อวันที่..........................'));
+        $pdf->SetXY(20, 103);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เดือน...................................................พ.ศ. ...................................'));
+        $pdf->SetXY(25, 108);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  เห็นสมควรอนุมัติให้ดำเนินการสอบหัวข้อ'), 0, 1, 'L');
+        $pdf->SetXY(97, 108);
+        $pdf->checkboxMark($document['projectType_gs12report'] == 'วิทยานิพนธ์', 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
+        $pdf->SetXY(125, 108);
+        $pdf->checkboxMark($document['projectType_gs12report'] == 'การศึกษาค้นคว้าอิสระ', 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ    ตามเสนอ'), 0, 1, 'L');
+        $pdf->SetXY(25, 115);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
+    } else {
+        $pdf->SetXY(78, 94);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
+        $pdf->SetXY(108, 94);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ'), 0, 1, 'L');
+        $pdf->SetXY(153, 96);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เมื่อวันที่..........................'));
+        $pdf->SetXY(20, 103);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เดือน...................................................พ.ศ. ...................................'));
+        $pdf->SetXY(25, 108);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  เห็นสมควรอนุมัติให้ดำเนินการสอบหัวข้อ'), 0, 1, 'L');
+        $pdf->SetXY(97, 108);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
+        $pdf->SetXY(125, 108);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ    ตามเสนอ'), 0, 1, 'L');
     }
+    if (
+        isset($graduateOfficerSignatures[0]['gradofficersignGs12_status']) &&
+        $graduateOfficerSignatures[0]['gradofficersignGs12_status'] == 'ถูกปฏิเสธจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว'
+    ) {
+        $pdf->SetXY(x: 50, y: 116.5);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $gradofficersignGs12Description = isset($graduateOfficerSignatures[0]['gradofficersignGs12_description']) ? $graduateOfficerSignatures[0]['gradofficersignGs12_description'] : '';
 
-    $pdf->SetXY(153, 96);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เมื่อวันที่..........................'));
-    $pdf->SetXY(20, 103);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เดือน...................................................พ.ศ. ...................................'));
-    $pdf->SetXY(25, 108);
-    $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  เห็นสมควรอนุมัติให้ดำเนินการสอบหัวข้อ'), 0, 1, 'L');
-    $pdf->SetXY(97, 108);
-    $pdf->checkboxMark($document['projectType_gs12report'] == 'วิทยานิพนธ์', 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
-    $pdf->SetXY(125, 108);
-    $pdf->checkboxMark($document['projectType_gs12report'] == 'การศึกษาค้นคว้าอิสระ', 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ    ตามเสนอ'), 0, 1, 'L');
-    $pdf->SetXY(25, 115);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
-    
-}else {
-    $pdf->SetXY(78, 94);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
-    $pdf->SetXY(108, 94);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ'), 0, 1, 'L');
-    $pdf->SetXY(153, 96);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เมื่อวันที่..........................'));
-    $pdf->SetXY(20, 103);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'เดือน...................................................พ.ศ. ...................................'));
-    $pdf->SetXY(25, 108);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  เห็นสมควรอนุมัติให้ดำเนินการสอบหัวข้อ'), 0, 1, 'L');
-    $pdf->SetXY(97, 108);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  วิทยานิพนธ์'), 0, 1, 'L');
-    $pdf->SetXY(125, 108);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  การศึกษาค้นคว้าอิสระ    ตามเสนอ'), 0, 1, 'L');
-}
-    if (isset($graduateOfficerSignatures[0]['gradofficersignGs12_status']) && 
-    $graduateOfficerSignatures[0]['gradofficersignGs12_status'] == 'ถูกปฏิเสธจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว') {
-    $pdf->SetXY(x:50, y:116.5); 
-    $pdf->SetFont('THSarabunNew','',16);
-    $gradofficersignGs12Description = isset($graduateOfficerSignatures[0]['gradofficersignGs12_description']) ? $graduateOfficerSignatures[0]['gradofficersignGs12_description'] : '';
-
-    $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $gradofficersignGs12Description));
-    $pdf->SetXY(25, 115);
-    $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
-
+        $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $gradofficersignGs12Description));
+        $pdf->SetXY(25, 115);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ..........................................................................................................'), 0, 1, 'L');
     }
     if (is_array($graduateOfficerSignatures) || is_object($graduateOfficerSignatures)) {
         foreach ($graduateOfficerSignatures as $signature) {
@@ -917,16 +944,16 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetXY(110, 120);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'ลงชื่อ..............................................................................'));
-    $GradOfficeName = isset($graduateOfficerSignatures[0]['gradofficersignGs12_nameGradOffice']) 
-    ? $graduateOfficerSignatures[0]['gradofficersignGs12_nameGradOffice'] : '';
-    $pdf->SetXY(x:127, y:131.5); 
-    $pdf->SetFont('THSarabunNew','',16); 
-    $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $GradOfficeName ));
+    $GradOfficeName = isset($graduateOfficerSignatures[0]['gradofficersignGs12_nameGradOffice'])
+        ? $graduateOfficerSignatures[0]['gradofficersignGs12_nameGradOffice'] : '';
+    $pdf->SetXY(x: 127, y: 131.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $GradOfficeName));
     $pdf->SetXY(118, 127);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '(............................................................................)'));
 
-    
+
     $pdf->SetXY(121, 139);
     $pdf->SetFont('THSarabunNew', '', 16);
     if (is_array($graduateOfficerSignatures) || is_object($graduateOfficerSignatures)) {
@@ -946,35 +973,37 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetXY(25, 156);
     $pdf->checkboxMark(
         isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status']) &&
-        $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ได้รับการอนุมัติจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว',
+            $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ได้รับการอนุมัติจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว',
         4,
         'THSarabunNew',
         16
     );
     $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  เห็นควรอนุมัติ'), 0, 1, 'L');
 
-    if (isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status']) && 
-    $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ถูกปฏิเสธจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว') {
-    
-    $pdf->SetXY(25, 162);
-    $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
-    
-    $AcademicResearchAssociateDeanDescription = isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description']) ? $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description'] : '';
-    $pdf->SetXY(50, 163.5);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $AcademicResearchAssociateDeanDescription));
+    if (
+        isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status']) &&
+        $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ถูกปฏิเสธจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว'
+    ) {
 
-    $pdf->SetXY(29, 162);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
-} else {
-    // กรณีไม่ถูกปฏิเสธ
-    $pdf->SetXY(25, 162);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    
-    // แสดงช่อง "อื่น ๆ" เปล่า ๆ
-    $pdf->SetXY(29, 162);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
-}
+        $pdf->SetXY(25, 162);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+
+        $AcademicResearchAssociateDeanDescription = isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description']) ? $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description'] : '';
+        $pdf->SetXY(50, 163.5);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $AcademicResearchAssociateDeanDescription));
+
+        $pdf->SetXY(29, 162);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
+    } else {
+        // กรณีไม่ถูกปฏิเสธ
+        $pdf->SetXY(25, 162);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+
+        // แสดงช่อง "อื่น ๆ" เปล่า ๆ
+        $pdf->SetXY(29, 162);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
+    }
 
     $pdf->SetXY(20, 170);
     $pdf->SetFont('THSarabunNew', '', 16);
@@ -1021,33 +1050,32 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetXY(25, 211);
     $pdf->checkboxMark(
         isset($IndustrialEducationDeanSignatures[0]['deanfiesign_status']) &&
-        $IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ได้รับการอนุมัติจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว',
+            $IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ได้รับการอนุมัติจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว',
         4,
         'THSarabunNew',
         16
-    );    
+    );
     $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อนุมัติ'), 0, 1, 'L');
-    if(isset($IndustrialEducationDeanSignatures[0]['deanfiesign_status']) &&
-$IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ถูกปฏิเสธจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว'){
-$pdf->SetXY(25, 217);
-$pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+    if (
+        isset($IndustrialEducationDeanSignatures[0]['deanfiesign_status']) &&
+        $IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ถูกปฏิเสธจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว'
+    ) {
+        $pdf->SetXY(25, 217);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
 
-$IndustrialEducationDeanDescription = isset($IndustrialEducationDeanSignatures[0]['deanfiesign_description']) ?
-$IndustrialEducationDeanSignatures[0]['deanfiesign_description'] : '';
+        $IndustrialEducationDeanDescription = isset($IndustrialEducationDeanSignatures[0]['deanfiesign_description']) ?
+            $IndustrialEducationDeanSignatures[0]['deanfiesign_description'] : '';
 
-$pdf->SetXY(x: 50, y: 218.5);
-$pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $IndustrialEducationDeanDescription), 0, 1, 'L');
-$pdf->SetXY(x: 29, y: 217);
-$pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
-
-
-}else{
-$pdf->SetXY(25, 218.5);
-$pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-$pdf->SetXY(x: 29, y: 217);
-$pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
-
-}
+        $pdf->SetXY(x: 50, y: 218.5);
+        $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $IndustrialEducationDeanDescription), 0, 1, 'L');
+        $pdf->SetXY(x: 29, y: 217);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
+    } else {
+        $pdf->SetXY(25, 218.5);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->SetXY(x: 29, y: 217);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
+    }
     //$pdf->SetXY(x:50, y:224.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', '่ไม่ขอออกความเห็น'));
     $pdf->SetXY(20, 225);
     $pdf->SetFont('THSarabunNew', '', 16);
@@ -1119,7 +1147,9 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetXY(20, 80);
     $pdf->SetFont('THSarabunNew', 'B', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'ชื่อเรื่อง (ภาษาไทย)'));
-    $pdf->SetXY(60, 85); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['projectThai_gs12report']));
+    $pdf->SetXY(60, 85);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['projectThai_gs12report']));
     $pdf->SetXY(50, 80.5);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '.......................................................................................................................................................'));
@@ -1136,7 +1166,9 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetFont('THSarabunNew', 'B', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'ชื่อเรื่อง (ภาษาอังกฤษ)'));
 
-    $pdf->SetXY(x:60, y:117); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['projectEng_gs12report']));
+    $pdf->SetXY(x: 60, y: 117);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['projectEng_gs12report']));
     $pdf->SetXY(55, 112.5);
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '.................................................................................................................................................'));
@@ -1150,7 +1182,9 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '.........................................................................................................................................................................................'));
 
-    $pdf->SetXY(x:90, y:179.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['name_student']));
+    $pdf->SetXY(x: 90, y: 179.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['name_student']));
     $pdf->SetXY(105, 167);
     $pdf->SetFont('THSarabunNew', 'B', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'ผู้เสนอ'));
@@ -1158,7 +1192,9 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '..................................................................................'));
 
-    $pdf->SetXY(x:110, y:187.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['idstd_student']));
+    $pdf->SetXY(x: 110, y: 187.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['idstd_student']));
     $pdf->SetXY(80, 183);
     $pdf->SetFont('THSarabunNew', 'B', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'รหัสประจำตัว'));
@@ -1166,7 +1202,9 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '  ........................................................'));
 
-    $pdf->SetXY(x:110, y:195.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['major_student']));
+    $pdf->SetXY(x: 110, y: 195.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['major_student']));
     $pdf->SetXY(80, 191);
     $pdf->SetFont('THSarabunNew', 'B', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'สาขาวิชา'));
@@ -1175,8 +1213,12 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', '.........................................................'));
 
 
-    $pdf->SetXY(x:120, y:244.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['advisorMain_gs12report']));
-    $pdf->SetXY(x:120, y:252.5); $pdf->SetFont('THSarabunNew','',16); $pdf->Cell(2,0, iconv('UTF-8', 'cp874', $document['advisorSecond_gs12report']));
+    $pdf->SetXY(x: 120, y: 244.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['advisorMain_gs12report']));
+    $pdf->SetXY(x: 120, y: 252.5);
+    $pdf->SetFont('THSarabunNew', '', 16);
+    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $document['advisorSecond_gs12report']));
     $pdf->SetXY(80, 240);
     $pdf->SetFont('THSarabunNew', 'B', 16);
     $pdf->Cell(20, 10, iconv('UTF-8', 'cp874', 'อาจารย์ที่ปรึกษาหลัก....................................................................................'));
@@ -1196,4 +1238,3 @@ $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ....................
 } else {
     echo json_encode(["error" => "Document not found."]);
 }
-?>

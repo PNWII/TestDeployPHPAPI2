@@ -812,31 +812,33 @@ if ($document) {
     $pdf->SetXY(48, 44);
     $pdf->checkboxMark(
         isset($chairpersoncurriculumSignatures[0]['ccurrsigna_status']) &&
-        $chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ได้รับการอนุมัติจากประธานคณะกรรมการบริหารหลักสูตรแล้ว',
+            $chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ได้รับการอนุมัติจากประธานคณะกรรมการบริหารหลักสูตรแล้ว',
         4,
         'THSarabunNew',
         16
     );
     $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อนุมัติ'), 0, 1, 'L');
-    if (isset($chairpersoncurriculumSignatures[0]['ccurrsigna_status']) && 
-    $chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ถูกปฏิเสธจากประธานคณะกรรมการบริหารหลักสูตรแล้ว') {
-    
-    // ทำเครื่องหมาย Checkbox
-    $pdf->SetXY(71, 44);
-    $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  พิจารณา'), 0, 1, 'L');
-    
-    // แสดงข้อความใน $description
-    $description = isset($chairpersoncurriculumSignatures[0]['ccurrsigna_description']) ? $chairpersoncurriculumSignatures[0]['ccurrsigna_description'] : '';
-    $pdf->SetXY(120, 45.5);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $description));
-} else {
-    // กรณีไม่ถูกปฏิเสธ
-    $pdf->SetXY(71, 44);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  พิจารณา'), 0, 1, 'L');
-}
+    if (
+        isset($chairpersoncurriculumSignatures[0]['ccurrsigna_status']) &&
+        $chairpersoncurriculumSignatures[0]['ccurrsigna_status'] == 'ถูกปฏิเสธจากประธานคณะกรรมการบริหารหลักสูตรแล้ว'
+    ) {
+
+        // ทำเครื่องหมาย Checkbox
+        $pdf->SetXY(71, 44);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  พิจารณา'), 0, 1, 'L');
+
+        // แสดงข้อความใน $description
+        $description = isset($chairpersoncurriculumSignatures[0]['ccurrsigna_description']) ? $chairpersoncurriculumSignatures[0]['ccurrsigna_description'] : '';
+        $pdf->SetXY(120, 45.5);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $description));
+    } else {
+        // กรณีไม่ถูกปฏิเสธ
+        $pdf->SetXY(71, 44);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  พิจารณา'), 0, 1, 'L');
+    }
 
     $pdf->SetXY(95, 44);
     $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
@@ -873,7 +875,7 @@ if ($document) {
     $pdf->SetXY(25, 95);
     $pdf->checkboxMark(
         isset($graduateOfficerSignatures[0]['gradofficersign_status']) &&
-        $graduateOfficerSignatures[0]['gradofficersign_status'] == 'ได้รับการอนุมัติจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว',
+            $graduateOfficerSignatures[0]['gradofficersign_status'] == 'ได้รับการอนุมัติจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว',
         4,
         'THSarabunNew',
         16
@@ -917,34 +919,36 @@ if ($document) {
     $pdf->SetFont('THSarabunNew', '', 16);
     $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', 'ตามเสนอ'));
 
-    if (isset($graduateOfficerSignatures[0]['gradofficersign_status']) && 
-    $graduateOfficerSignatures[0]['gradofficersign_status'] == 'ถูกปฏิเสธจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว') {
-    
-    // ทำเครื่องหมาย Checkbox
-    $pdf->SetXY(25, 105);
-    $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
-    
-    // แสดงข้อความใน $GradOfficeaDescription
-    $GradOfficeaDescription = isset($graduateOfficerSignatures[0]['gradofficersign_description']) ? $graduateOfficerSignatures[0]['gradofficersign_description'] : '';
-    $pdf->SetXY(45, 106.5);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $GradOfficeaDescription));
+    if (
+        isset($graduateOfficerSignatures[0]['gradofficersign_status']) &&
+        $graduateOfficerSignatures[0]['gradofficersign_status'] == 'ถูกปฏิเสธจากเจ้าหน้าที่บัณฑิตศึกษาแล้ว'
+    ) {
 
-    $pdf->SetXY(29, 105);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ......................................................................................................................................................................'), 0, 1, 'L');
-    $pdf->SetXY(22, 113);
-    $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', '..........................................................................................................................................................................................'));
-} else {
-    // กรณีไม่ถูกปฏิเสธ
-    $pdf->SetXY(25, 105);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    
-    // แสดงข้อความ "อื่น ๆ" แต่ไม่ใส่ $GradOfficeaDescription
-    $pdf->SetXY(29, 105);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ......................................................................................................................................................................'), 0, 1, 'L');
-    $pdf->SetXY(22, 113);
-    $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', '..........................................................................................................................................................................................'));
-}
+        // ทำเครื่องหมาย Checkbox
+        $pdf->SetXY(25, 105);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+
+        // แสดงข้อความใน $GradOfficeaDescription
+        $GradOfficeaDescription = isset($graduateOfficerSignatures[0]['gradofficersign_description']) ? $graduateOfficerSignatures[0]['gradofficersign_description'] : '';
+        $pdf->SetXY(45, 106.5);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $GradOfficeaDescription));
+
+        $pdf->SetXY(29, 105);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ......................................................................................................................................................................'), 0, 1, 'L');
+        $pdf->SetXY(22, 113);
+        $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', '..........................................................................................................................................................................................'));
+    } else {
+        // กรณีไม่ถูกปฏิเสธ
+        $pdf->SetXY(25, 105);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+
+        // แสดงข้อความ "อื่น ๆ" แต่ไม่ใส่ $GradOfficeaDescription
+        $pdf->SetXY(29, 105);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ......................................................................................................................................................................'), 0, 1, 'L');
+        $pdf->SetXY(22, 113);
+        $pdf->Cell(0, 0, iconv('UTF-8', 'cp874', '..........................................................................................................................................................................................'));
+    }
 
 
     $pdf->SetXY(130, 124.5);
@@ -995,37 +999,39 @@ if ($document) {
     // $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
     $pdf->checkboxMark(
         isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status']) &&
-        $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ได้รับการอนุมัติจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว',
+            $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ได้รับการอนุมัติจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว',
         4,
         'THSarabunNew',
         16
     );
     $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  เห็นควรอนุมัติ'), 0, 1, 'L');
-    if (isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status']) && 
-    $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ถูกปฏิเสธจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว') {
-    
-    // ทำเครื่องหมาย Checkbox
-    $pdf->SetXY(25, 162);
-    $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
-    
-    // แสดงข้อความใน $AcademicResearchAssociateDeanDescription
-    $AcademicResearchAssociateDeanDescription = isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description']) ? $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description'] : '';
-    $pdf->SetXY(45, 163.5);
-    $pdf->SetFont('THSarabunNew', '', 16);
-    $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $AcademicResearchAssociateDeanDescription));
+    if (
+        isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status']) &&
+        $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_status'] == 'ถูกปฏิเสธจากรองคณบดีฝ่ายวิชาการและวิจัยแล้ว'
+    ) {
 
-    // แสดงข้อความ "อื่น ๆ" พร้อมเส้น ..................................................
-    $pdf->SetXY(29, 162);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
-} else {
-    // กรณีไม่ถูกปฏิเสธ
-    $pdf->SetXY(25, 162);
-    $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
-    
-    // แสดงช่อง "อื่น ๆ" เปล่า ๆ
-    $pdf->SetXY(29, 162);
-    $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
-}
+        // ทำเครื่องหมาย Checkbox
+        $pdf->SetXY(25, 162);
+        $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
+
+        // แสดงข้อความใน $AcademicResearchAssociateDeanDescription
+        $AcademicResearchAssociateDeanDescription = isset($AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description']) ? $AcademicResearchAssociateDeanSignatures[0]['vdAcrsign_description'] : '';
+        $pdf->SetXY(45, 163.5);
+        $pdf->SetFont('THSarabunNew', '', 16);
+        $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $AcademicResearchAssociateDeanDescription));
+
+        // แสดงข้อความ "อื่น ๆ" พร้อมเส้น ..................................................
+        $pdf->SetXY(29, 162);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
+    } else {
+        // กรณีไม่ถูกปฏิเสธ
+        $pdf->SetXY(25, 162);
+        $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
+
+        // แสดงช่อง "อื่น ๆ" เปล่า ๆ
+        $pdf->SetXY(29, 162);
+        $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อื่น ๆ.....................................................................................................................................................................'), 0, 1, 'L');
+    }
 
     $pdf->SetXY(20, 170);
     $pdf->SetFont('THSarabunNew', '', 16);
@@ -1075,15 +1081,17 @@ if ($document) {
     $pdf->SetXY(25, 211);
     $pdf->checkboxMark(
         isset($IndustrialEducationDeanSignatures[0]['deanfiesign_status']) &&
-        $IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ได้รับการอนุมัติจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว',
+            $IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ได้รับการอนุมัติจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว',
         4,
         'THSarabunNew',
         16
     );
     $pdf->Cell(0, 4, iconv('UTF-8', 'cp874', '  อนุมัติ'), 0, 1, 'L');
 
-    if(isset($IndustrialEducationDeanSignatures[0]['deanfiesign_status']) &&
-    $IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ถูกปฏิเสธจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว'){
+    if (
+        isset($IndustrialEducationDeanSignatures[0]['deanfiesign_status']) &&
+        $IndustrialEducationDeanSignatures[0]['deanfiesign_status'] == 'ถูกปฏิเสธจากคณบดีคณะครุศาสตร์อุตสาหกรรมแล้ว'
+    ) {
         $pdf->SetXY(25, 217);
         $pdf->checkboxMark(true, 4, 'THSarabunNew', 16);
 
@@ -1091,8 +1099,7 @@ if ($document) {
 
         $pdf->SetXY(x: 45, y: 218.5);
         $pdf->Cell(2, 0, iconv('UTF-8', 'cp874', $IndustrialEducationDeanDescription), 0, 1, 'L');
-
-    }else{
+    } else {
         $pdf->SetXY(25, 217);
         $pdf->checkboxMark(false, 4, 'THSarabunNew', 16);
     }
@@ -1255,4 +1262,3 @@ if ($document) {
 } else {
     echo json_encode(["error" => "Document not found."]);
 }
-?>
