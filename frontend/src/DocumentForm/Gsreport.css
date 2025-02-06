@@ -1,0 +1,22 @@
+.container-gsReport {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgb(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  transition: transform 0.2s;
+  width: 1200px;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+}
+.signature-canvas {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: crosshair;
+}
+.signature-buttons {
+  margin-top: 10px;
+}
+.signature-buttons button {
+  margin-right: 10px;
+}

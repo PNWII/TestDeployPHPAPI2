@@ -1,0 +1,61 @@
+.input-wrapper {
+  background-color: #ffffff; /* สีพื้นหลังคล้าย Google */
+  width: 60%; /* ขนาดกว้าง 60% ของหน้าจอ */
+  margin: 20px auto; /* จัดให้อยู่ตรงกลางทั้งแนวตั้งและแนวนอน */
+  border-radius: 50px; /* มุมโค้งมน */
+  height: 3.5rem; /* ความสูงของช่อง */
+  padding: 0 15px; /* ระยะขอบด้านใน */
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2); /* เงาเล็กน้อย */
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  background-color: transparent; /* พื้นหลังโปร่งใส */
+  border: none; /* ไม่มีเส้นขอบ */
+  height: 100%;
+  font-size: 1.5rem; /* ขนาดตัวอักษรใหญ่ */
+  width: 100%; /* ช่องกรอกข้อมูลเต็มพื้นที่ */
+  margin-left: 20px; /* ระยะห่างจากไอคอน */
+}
+
+input:focus {
+  outline: none; /* เอาเส้นขอบตอนโฟกัสออก */
+}
+
+#search-icon {
+  color: #000000; /* สีไอคอนเหมือนของ Google */
+  font-size: 24px; /* ขนาดใหญ่ขึ้น */
+  margin-left: 10px; /* เว้นระยะจากขอบ */
+  cursor: pointer; /* แสดงรูปมือเมื่อวางเมาส์ */
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto; /* ช่องว่างระหว่างผลลัพธ์ */
+  width: 60%; /* ความกว้างเท่ากับช่องค้นหา */
+  max-height: 300px; /* จำกัดความสูงของผลลัพธ์ */
+  overflow-y: auto; /* สร้าง scroll เมื่อผลลัพธ์เกิน */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-item {
+  padding: 12px 20px;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.result-item:hover {
+  background-color: #f1f3f4;
+}
+
+.no-results {
+  padding: 12px 20px;
+  color: #000000;
+  font-size: 1.25rem;
+  text-align: center;
+}

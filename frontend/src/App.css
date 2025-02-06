@@ -1,0 +1,47 @@
+.card {
+  min-height: auto; /* กำหนดความสูงขั้นต่ำของการ์ด */
+}
+.card-title {
+  font-size: 1.05rem; /* ปรับขนาดตัวอักษรชื่อเอกสาร */
+}
+/* เพิ่มขนาดความกว้างของการ์ด */
+.custom-card {
+  width: 100%; /* ปรับการ์ดให้ใช้ความกว้างเต็มที่ */
+  max-width: 450px; /* กำหนดความกว้างสูงสุดที่ต้องการ */
+  margin-bottom: 20px; /* เพิ่มระยะห่างขวา-ซ้าย */
+  word-wrap: break-word; /* จัดการกับข้อความยาวที่เกินขอบเขต */
+  overflow: hidden; /* ป้องกันข้อความล้นออกมานอกการ์ด */
+}
+
+/* ปรับแต่งเรื่องย่อ */
+.custom-card-row {
+  display: flex;
+  flex-wrap: wrap; /* รองรับการจัดเรียงการ์ดหลายคอลัมน์ */
+  padding-left: 10px; /* กำหนดให้ padding ด้านซ้ายเป็น 10px */
+  padding-right: 10px; /* กำหนดให้ padding ด้านขวาเป็น 10px */
+}
+
+/* เพิ่มการจัดการการ์ดที่รองรับทุกขนาดหน้าจอ */
+@media (max-width: 576px) {
+  .custom-card {
+    max-width: 100%; /* ใช้ความกว้างเต็มบนหน้าจอขนาดเล็ก */
+  }
+}
+
+@media (min-width: 576px) {
+  .custom-card {
+    max-width: 90%; /* ใช้ความกว้าง 90% สำหรับหน้าจอขนาดเล็ก-กลาง */
+  }
+}
+
+@media (min-width: 992px) {
+  .custom-card {
+    max-width: 40rem; /* ใช้ขนาดการ์ดที่กำหนดสำหรับหน้าจอขนาดกลาง */
+  }
+}
+
+.align-center {
+  display: flex;
+  justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+  align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}

@@ -1,0 +1,42 @@
+/* การ์ดโปรไฟล์ */
+.profile-card {
+  background: #fff;
+  border-radius: 15px; /* ลดมุมโค้ง */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1); /* ลดความเด่นของเงา */
+  max-width: 800px; /* ลดขนาดความกว้าง */
+  margin: 40px auto; /* ลดระยะห่างด้านบน */
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: border-color 0.3s ease;
+}
+
+.profile-card {
+  border-color: #f39422;
+}
+
+/* ส่วนหัวของการ์ด */
+.profile-header {
+  background: #f39422;
+  color: rgb(0, 0, 0);
+  padding: 20px; /* ลดระยะ padding */
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 2rem; /* ลดขนาดตัวอักษร */
+  font-weight: 700;
+}
+
+.profile-header h3 {
+  font-size: 1rem; /* ลดขนาดตัวอักษร */
+  margin-top: 5px;
+}
+
+/* เนื้อหาการ์ด */
+.profile-body {
+  padding: 25px; /* ลด padding รอบเนื้อหา */
+  font-size: 1.1rem; /* ลดขนาดตัวอักษร */
+  line-height: 1.6; /* ปรับความหนาแน่นของบรรทัด */
+  color: #333;
+}
